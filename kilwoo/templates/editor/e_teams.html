@@ -1,0 +1,26 @@
+{% extends 'editor/e_introduction.html' %}
+
+
+
+{% block content %}
+    <div style="background-image: {{ specific.image.url }};">
+    <h1>
+       Products - {{ specific.title }}
+    </h1>
+        <div class="Menu">
+            <div class="border">
+                <div>
+                    {% for subcategory in subcategories %}
+                        {% if specific == subcategory.team %}
+                            <div>
+                                <a href="{% url 'e_subcategory' pk=subcategory.pk%}">
+                                    <span>{{ subcategory.name }}</span>
+                                </a>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

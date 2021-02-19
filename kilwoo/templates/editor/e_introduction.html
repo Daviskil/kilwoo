@@ -1,0 +1,87 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Django Tutorial</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/dec.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Just+Another+Hand&display=swap" rel="stylesheet">
+</head>
+
+<div>
+    <nav class="gnb" id="gnb">
+        <ul class="items">
+            <li>
+                <a class="nav-item" href="{% url 'e_introduction' %}">
+                    {% for information in informations %}
+                        <img id="brand-image" src="{{ information.image.url }}">
+                    {% endfor %}
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="item-name" href="#" title="Products">Products</a>
+                <ul class="dropdown">
+                    {% for team in teams %}
+                    <li><a class="dropdown-item" href="{% url 'e_teams' pk=team.pk%}">{{ team.title }}</a></li>
+                  {% endfor %}
+                </ul>
+            </li>
+
+            <li class="nav-item">
+                <a class="item-name" href="#" title="Services">Services</a>
+                <ul class="dropdown">
+                    {% for service in services %}
+                    <li><a class="dropdown-item" href="{% url 'e_services' pk=service.pk%}">{{ service.title }}</a></li>
+                  {% endfor %}
+                </ul>
+            </li>
+        </ul>
+
+    </nav>
+</div>
+
+<body>
+
+    <br>
+    <div>
+
+        {% block content %}
+            {%for information in informations%}
+                <div class = "introduction">
+                    <div id="introduction">
+
+                        <p>{{ information.text|safe }}</p>
+                    </div>
+                    <div id="location-history">
+                        <p>{{ information.location|safe }}</p>
+                    </div>
+                        <a href="{% url 'e_introduction_edit' pk=information.pk%}" class="btn btn-default">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                              <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                              <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                            </svg>
+                        </a>
+                    </div>
+            {% endfor %}
+        {% endblock %}
+    </div>
+
+    <footer id="footer">
+        <p>
+            Rm. A-706, 27, Chilp ae-ro, Jung-gu, Seoul, 04511 Republic of Korea  |  TEL: +82-2-7286-800  |  FAX: +82-2-754-9713, +82-2-754-9715
+            <br>
+            Team 1: +82-2-7286-810~812  |  Team 2: +82-2-7286-830~833  |  Sales Dept 3: +82-2-7286-850-852
+            <br>
+            COPYRIGHT (C) 2011 KILWOO. ALL RIGHTS RESERVED.
+        </p>
+    </footer>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js" integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js" integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG" crossorigin="anonymous"></script>
+</body>
+
+</html>
+
+
+

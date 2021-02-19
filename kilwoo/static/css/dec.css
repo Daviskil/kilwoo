@@ -1,0 +1,124 @@
+
+
+body{
+    width: 1280px;
+    padding-left: 30px;
+    padding-right: 30px;
+    overflow-y: scroll;
+}
+
+
+#brand-image{
+    height: 80px;
+    padding-top: 15px;
+}
+
+footer {
+    width: 1280px;
+    position: fixed;
+    height: 50px;
+    bottom: 0px;
+    background-color: #FFFFFF;
+
+}
+
+#image{
+    width: 500px;
+    height: 470px;
+}
+
+h1{
+    font-family: "Times New Roman";
+}
+
+h4{
+    font-family: "Courier New"
+}
+
+.Menu{
+    width: 13%;
+    border: 10px inset #ddd;
+
+}
+
+.border{
+    padding: 5%;
+}
+
+
+.gnb{
+    width: 1280;
+
+
+}
+
+.items{
+    list-style: none;
+    margin:0;
+    display:flex;
+    align-items:center;
+}
+
+li a {
+    text-decoration:none;
+    color:black;
+    padding-right: 20em;
+    position:relative;
+
+}
+
+li a::after{
+    content:'';
+    position: absolute;
+    display:block;
+    height:0.3em;
+    width:0%;
+    background-color: #33cccc;
+    bottom: 1em;
+    transition: all ease-in-out 250ms;
+}
+
+li a:hover::after{
+    width: 20%;
+}
+li:first-child{
+    margin-right:auto;
+}
+
+.dropdown{
+    display:none;
+    position: absolute;
+    z-index: 1;
+}
+
+.dropdown a{
+    display: block;
+    list-style: none;
+    text-decoration: none;
+    color: black;
+    padding: 12px 16px;
+}
+
+.nav-item:hover .dropdown{
+    display: block;
+    transition: all 0.5s ease-in-out;
+
+}
+
+
+#introduction{
+    padding-left: 70px;
+    padding-right: 70px;
+    text-align: center;
+    margin-right: 450px;
+    background-color: #ededed;
+}
+
+#location-history{
+    padding-left: 70px;
+    padding-right: 70px;
+
+    text-align: center;
+    background-color: #ededed;
+    padding-bottom: 20px;
+}
